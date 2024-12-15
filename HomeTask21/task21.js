@@ -1157,6 +1157,144 @@ function isNumericString(str) {
 console.log(isNumericString("12345")); 
 console.log(isNumericString("123a5")); 
 
+//Сделайте функцию, которая параметром будет принимать массив с числами и возвращать второе по величине число.
+function secondMax(arr) {
+    if (arr.length < 2) {
+        return null; 
+    }
+    let max1 = Math.max(...arr);
+    arr = arr.filter(num => num !== max1);
+    let max2 = Math.max(...arr);
+
+    return max2;
+}
+
+const numbers6 = [3, 1, 4, 1, 5, 9, 2, 6];
+const result19 = secondMax(numbers6);
+console.log(result18);
+
+//Сделайте функцию, которая параметрами будет принимать два числа и возвращать массив, заполненный целыми числами от минимального параметра до максимального.
+function range(min, max) {
+    const result = [];
+    
+    for (let i = min; i <= max; i++) {
+        result.push(i);
+    }
+
+    return result;
+}
+
+const min = 3;
+const max = 7;
+const rangeArray = range(min, max);
+console.log(rangeArray); 
+
+//Сделайте функцию, которая заполнит массив случайными латинскими буквами.
+function randomLettersArray(n) {
+    const result = [];
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+
+    for (let i = 0; i < n; i++) {
+        const randomIndex = Math.floor(Math.random() * letters.length);
+        const randomLetter = letters[randomIndex];
+        result.push(randomLetter);
+    }
+
+    return result;
+}
+const n = 10;
+const randomLetters = randomLettersArray(n);
+console.log(randomLetters); 
+
+//Сделайте функцию, которая будет возвращать сумму N первых чисел Фибоначчи.
+function sumFibonacci(N) {
+    if (N <= 0) return 0;
+
+    let fib = [0, 1];
+    let sum = 1; 
+
+    for (let i = 2; i < N; i++) {
+        let nextFib = fib[i - 1] + fib[i - 2];
+        fib.push(nextFib);
+        sum += nextFib;
+    }
+
+    return sum;
+}
+
+const N = 5;
+const sum3= sumFibonacci(N);
+console.log(sum3); 
+
+//4.6
+console.log('Level 4.6');
+
+//Сделайте функцию, которая параметром будет принимать дату в формате год-месяц-день, и определять, существует ли такая дата или нет.
+function isValidDate(dateString) {
+    const [year, month, day] = dateString.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
+    return date.getFullYear() === year && date.getMonth() + 1 === month && date.getDate() === day;
+}
+
+console.log(isValidDate("2024-02-30")); 
+
+//Сделайте функцию, которая сгенерирует строку заданной длины, заполненную случайными латинскими буквами.
+function generateRandomString(length) {
+    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result = '';
+    const charactersLength = characters.length;
+
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+}
+
+console.log(generateRandomString(10));
+
+//Сделайте функцию, которая параметром будет получать строку со словами, а возвращать строку в верхнем регистре, состоящую из первых букв слов.
+function getInitials(sentence) {
+    return sentence
+        .split(' ') 
+        .map(word => word.charAt(0).toUpperCase()) 
+        .join(''); 
+}
+
+console.log(getInitials('hello world')); // "HW"
+
+//Сделайте функцию, которая параметром будет принимать массив с числами и заменять каждое число на массив его делителей.
+function replaceWithDivisors(arr) {
+    return arr.map(num => {
+        const divisors = [];
+        for (let i = 1; i <= num; i++) {
+            if (num % i === 0) {
+                divisors.push(i);
+            }
+        }
+        return divisors;
+    });
+}
+
+console.log(replaceWithDivisors([10, 15, 21]));
+
+//Сделайте функцию, которая параметром будет принимать секунды, а возвращать количество дней, часов, минут и секунд, соответствующих этим секундам, в виде следующего объекта:
+
+//{
+//	d: 12,
+//	h: 10,
+//	m: 59,
+//	s: 59,
+//}
+
+
+
+
+
+
+
+
+
 
 
 
