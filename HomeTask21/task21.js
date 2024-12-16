@@ -1537,7 +1537,23 @@ function getPrimeDivisors(num) {
 console.log(getPrimeDivisors(60));
 
 //Сделайте функцию, которая параметром будет принимать слово и возвращать массив его слогов.
+function slogy(slovo) {
+    const holosni = "аеєиіїоуюя";
+    let rezultat = []
+    let sklad = ""
 
+    for (let i = 0; i < slovo.length; i++) {
+        sklad += slovo[i]
+        if (holosni.includes(slovo[i]) || i === slovo.length - 1) {
+            rezultat.push(sklad)
+            sklad = ""
+        }
+    }
+
+    return rezultat
+}
+
+console.log(slogy("яблуко"))
 
 
 
