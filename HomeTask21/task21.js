@@ -1113,7 +1113,7 @@ function isPrime(num) {
 
 const number10 = 29;
 const result17 = isPrime(number10);
-console.log(result17); 
+console.log(result17);
 
 //Сделайте функцию, которая параметром будет принимать число и удалять из него четные цифры.
 function removeEvenDigits(num) {
@@ -1154,13 +1154,13 @@ function isNumericString(str) {
     return true;
 }
 
-console.log(isNumericString("12345")); 
-console.log(isNumericString("123a5")); 
+console.log(isNumericString("12345"));
+console.log(isNumericString("123a5"));
 
 //Сделайте функцию, которая параметром будет принимать массив с числами и возвращать второе по величине число.
 function secondMax(arr) {
     if (arr.length < 2) {
-        return null; 
+        return null;
     }
     let max1 = Math.max(...arr);
     arr = arr.filter(num => num !== max1);
@@ -1176,7 +1176,7 @@ console.log(result18);
 //Сделайте функцию, которая параметрами будет принимать два числа и возвращать массив, заполненный целыми числами от минимального параметра до максимального.
 function range(min, max) {
     const result = [];
-    
+
     for (let i = min; i <= max; i++) {
         result.push(i);
     }
@@ -1187,7 +1187,7 @@ function range(min, max) {
 const min = 3;
 const max = 7;
 const rangeArray = range(min, max);
-console.log(rangeArray); 
+console.log(rangeArray);
 
 //Сделайте функцию, которая заполнит массив случайными латинскими буквами.
 function randomLettersArray(n) {
@@ -1204,14 +1204,14 @@ function randomLettersArray(n) {
 }
 const n = 10;
 const randomLetters = randomLettersArray(n);
-console.log(randomLetters); 
+console.log(randomLetters);
 
 //Сделайте функцию, которая будет возвращать сумму N первых чисел Фибоначчи.
 function sumFibonacci(N) {
     if (N <= 0) return 0;
 
     let fib = [0, 1];
-    let sum = 1; 
+    let sum = 1;
 
     for (let i = 2; i < N; i++) {
         let nextFib = fib[i - 1] + fib[i - 2];
@@ -1223,8 +1223,8 @@ function sumFibonacci(N) {
 }
 
 const N = 5;
-const sum3= sumFibonacci(N);
-console.log(sum3); 
+const sum3 = sumFibonacci(N);
+console.log(sum3);
 
 //4.6
 console.log('Level 4.6');
@@ -1236,7 +1236,7 @@ function isValidDate(dateString) {
     return date.getFullYear() === year && date.getMonth() + 1 === month && date.getDate() === day;
 }
 
-console.log(isValidDate("2024-02-30")); 
+console.log(isValidDate("2024-02-30"));
 
 //Сделайте функцию, которая сгенерирует строку заданной длины, заполненную случайными латинскими буквами.
 function generateRandomString(length) {
@@ -1256,9 +1256,9 @@ console.log(generateRandomString(10));
 //Сделайте функцию, которая параметром будет получать строку со словами, а возвращать строку в верхнем регистре, состоящую из первых букв слов.
 function getInitials(sentence) {
     return sentence
-        .split(' ') 
-        .map(word => word.charAt(0).toUpperCase()) 
-        .join(''); 
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase())
+        .join('');
 }
 
 console.log(getInitials('hello world')); // "HW"
@@ -1312,16 +1312,16 @@ console.log('Level 4.7');
 
 function sortWords(text) {
     return text
-        .split(' ') 
-        .sort((a, b) => a.localeCompare(b)) 
-        .join(' '); 
+        .split(' ')
+        .sort((a, b) => a.localeCompare(b))
+        .join(' ');
 }
 
 console.log(sortWords("яблуко груша банан ананас"));
 
 //Сделайте функцию, которая параметром будет принимать два массива и возвращать массив их общих элементов.
 function findCommonElements(array1, array2) {
-    
+
     const set1 = new Set(array1);
     const set2 = new Set(array2);
 
@@ -1341,44 +1341,210 @@ console.log(result20);
 
 class RandomNumberGenerator {
     constructor(max = 100) {
-      this.usedNumbers = new Set();
-      this.max = max;
+        this.usedNumbers = new Set();
+        this.max = max;
     }
-  
-    getRandomNumber() {
-      let number;
-      do {
-        number = Math.floor(Math.random() * this.max);
-      } while (this.usedNumbers.has(number));
-      
-      this.usedNumbers.add(number);
-      return number;
-    }
-  }
-  
-  const rng = new RandomNumberGenerator();
-  console.log(rng.getRandomNumber());
 
-  //Сделайте функцию, которая параметром будет принимать массив и элемент и возвращать следующий за ним элемент. Смотрите пример:
+    getRandomNumber() {
+        let number;
+        do {
+            number = Math.floor(Math.random() * this.max);
+        } while (this.usedNumbers.has(number));
+
+        this.usedNumbers.add(number);
+        return number;
+    }
+}
+
+const rng = new RandomNumberGenerator();
+console.log(rng.getRandomNumber());
+
+//Сделайте функцию, которая параметром будет принимать массив и элемент и возвращать следующий за ним элемент. Смотрите пример:
 //let arr = [1, 2, 3, 4, 5]; func(arr, 1); // 2 func(arr, 4); // 5 func(arr, 5); // 1
 
 function getNextElement(arr, element) {
     const index = arr.indexOf(element);
     if (index === -1) return undefined;
-  
-    return arr[(index + 1) % arr.length]; 
-  }
-  
-  let arr11 = [1, 2, 3, 4, 5];
-  
-  console.log(getNextElement(arr11, 1)); 
-  console.log(getNextElement(arr11, 4)); 
-  console.log(getNextElement(arr11, 5)); 
+
+    return arr[(index + 1) % arr.length];
+}
+
+let arr11 = [1, 2, 3, 4, 5];
+
+console.log(getNextElement(arr11, 1));
+console.log(getNextElement(arr11, 4));
+console.log(getNextElement(arr11, 5));
 
 //4.8
 console.log('Level 4.8');
 
 //Сделайте функцию, которая параметром будет принимать массив и возвращать случайный элемент этого массива.
+function getRandomElement(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+}
+
+let arr12 = [1, 2, 3, 4, 5];
+
+console.log(getRandomElement(arr12));
+
+//Сделайте функцию, которая параметром будет принимать массив и возвращать массив из N случайных элементов этого массива.
+function getRandomElements(arr, n) {
+    if (n <= 0) return [];
+
+    const shuffledArr = [...arr].sort(() => 0.5 - Math.random());
+    return shuffledArr.slice(0, n);
+}
+
+let arr13 = [1, 2, 3, 4, 5, 7, 11, 89, 23];
+
+console.log(getRandomElements(arr13, 3));
+
+//Сделайте функцию, которая параметром будет принимать массив и возвращать случайный элемент этого массива так, чтобы одинаковые элементы не возвращались два раза подряд.
+function getRandomElementWithNoRepeat(arr) {
+    let lastElement = null;
+
+    return function () {
+
+        let randomIndex;
+        let currentElement;
+
+        do {
+            randomIndex = Math.floor(Math.random() * arr.length);
+            currentElement = arr[randomIndex];
+        } while (currentElement === lastElement);
+
+        lastElement = currentElement;
+        return currentElement;
+    };
+}
+
+const getRandomUniqueElement = getRandomElementWithNoRepeat([1, 2, 3, 4, 5, 7, 11, 89, 23]);
+
+console.log(getRandomUniqueElement());
+
+//Сделайте функцию, которая параметрами будет принимать любое количество чисел, а возвращать их сумму.
+function sumOfNumbers(...numbers) {
+    return numbers.reduce((sum, num) => sum + num, 0);
+}
+
+console.log(sumOfNumbers(1, 2, 3, 4, 5));
+
+//4.9
+console.log('Level 4.9');
+
+//Сделайте функцию, которая будет возвращать сколько дней осталось до ближайшего 29 февраля.
+
+//Сделайте функцию, которая будет возвращать случайный цвет.
+function getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+console.log(getRandomColor());
+
+//Сделайте функцию, которая параметром будет принимать массив чисел и возвращать массив общих делителей всех чисел из переданного массива.
+function getCommonDivisors(numbers) {
+    if (!Array.isArray(numbers) || numbers.length === 0) return [];
+
+    // Функция для нахождения делителей одного числа
+    function findDivisors(num) {
+        const divisors = [];
+        for (let i = 1; i <= Math.abs(num); i++) {
+            if (num % i === 0) {
+                divisors.push(i);
+            }
+        }
+        return divisors;
+    }
+
+    // Найти общие делители всех чисел
+    return numbers
+        .map(findDivisors)
+        .reduce((commonDivisors, divisors) =>
+            commonDivisors.filter(divisor => divisors.includes(divisor))
+        );
+}
+
+console.log(getCommonDivisors([12, 18, 24]));
+
+//4.10
+console.log('Level 4.10');
+
+//Сделайте функцию, которая параметром будет принимать букву и проверять, это буква кириллицы или латиницы.
+//Сделайте функцию, которая параметром будет принимать массив и перемешивать элементы этого массива в случайном порядке.
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+    }
+    return array;
+}
+
+const myArray = [1, 2, 3, 4, 5];
+console.log(shuffleArray(myArray));
+
+//
+function organizeWordsByFirstLetter(text) {
+    const words = text
+        .toLowerCase()
+        .match(/\b[а-яa-zё]+\b/gi);
+
+    const wordMap = {};
+
+    if (words) {
+        words.forEach(word => {
+            const firstLetter = word[0];
+            if (!wordMap[firstLetter]) {
+                wordMap[firstLetter] = [];
+            }
+            wordMap[firstLetter].push(word);
+        });
+    }
+
+    return wordMap;
+}
+
+const text1 = "Milk and honey are sweet!";
+const organizedWords = organizeWordsByFirstLetter(text1);
+console.log(organizedWords);
+
+//Сделайте функцию, которая параметром будет принимать число, а возвращать массив его делителей, являющихся простыми числами.  
+
+function getPrimeDivisors(num) {
+    function isPrime(n) {
+        if (n < 2) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) return false;
+        }
+        return true;
+    }
+
+    const primeDivisors = [];
+    for (let i = 1; i <= Math.abs(num); i++) {
+        if (num % i === 0 && isPrime(i)) {
+            primeDivisors.push(i);
+        }
+    }
+    return primeDivisors;
+}
+
+
+console.log(getPrimeDivisors(60));
+
+//Сделайте функцию, которая параметром будет принимать слово и возвращать массив его слогов.
+
+
+
+
+
+
+
+
 
 
 
