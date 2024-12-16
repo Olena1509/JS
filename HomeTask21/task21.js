@@ -1287,11 +1287,98 @@ console.log(replaceWithDivisors([10, 15, 21]));
 //	s: 59,
 //}
 
+function convertSeconds(seconds) {
+    const days = Math.floor(seconds / (24 * 60 * 60));
+    seconds %= 24 * 60 * 60;
+
+    const hours = Math.floor(seconds / (60 * 60));
+    seconds %= 60 * 60;
+
+    const minutes = Math.floor(seconds / 60);
+    seconds %= 60;
+    return {
+        d: days,
+        h: hours,
+        m: minutes,
+        s: seconds
+    };
+}
+console.log(convertSeconds(1234567));
+
+//4.7
+console.log('Level 4.7');
+
+// Сделайте функцию, которая параметром будет принимать текст со словами, а возвращать текст, в котором эти слова будут отсортированы в алфавитном порядке.
+
+function sortWords(text) {
+    return text
+        .split(' ') 
+        .sort((a, b) => a.localeCompare(b)) 
+        .join(' '); 
+}
+
+console.log(sortWords("яблуко груша банан ананас"));
+
+//Сделайте функцию, которая параметром будет принимать два массива и возвращать массив их общих элементов.
+function findCommonElements(array1, array2) {
+    
+    const set1 = new Set(array1);
+    const set2 = new Set(array2);
+
+    const commonElements = Array.from(set1).filter(item => set2.has(item));
+
+    return commonElements;
+}
+
+const arr9 = [1, 2, 3, 4, 5];
+const arr10 = [3, 4, 5, 6, 7];
+const result20 = findCommonElements(arr9, arr10);
+console.log(result20);
 
 
 
+//Сделайте функцию, которая будет возвращать случайное число. Функция не должна возвращать одно и тоже число два раза подряд.
 
+class RandomNumberGenerator {
+    constructor(max = 100) {
+      this.usedNumbers = new Set();
+      this.max = max;
+    }
+  
+    getRandomNumber() {
+      let number;
+      do {
+        number = Math.floor(Math.random() * this.max);
+      } while (this.usedNumbers.has(number));
+      
+      this.usedNumbers.add(number);
+      return number;
+    }
+  }
+  
+  const rng = new RandomNumberGenerator();
+  console.log(rng.getRandomNumber());
 
+  //Сделайте функцию, которая параметром будет принимать массив и элемент и возвращать следующий за ним элемент. Смотрите пример:
+//let arr = [1, 2, 3, 4, 5]; func(arr, 1); // 2 func(arr, 4); // 5 func(arr, 5); // 1
+
+function getNextElement(arr, element) {
+    const index = arr.indexOf(element);
+    if (index === -1) return undefined;
+  
+    return arr[(index + 1) % arr.length]; 
+  }
+  
+  let arr11 = [1, 2, 3, 4, 5];
+  
+  console.log(getNextElement(arr11, 1)); 
+  console.log(getNextElement(arr11, 4)); 
+  console.log(getNextElement(arr11, 5)); 
+
+//4.8
+console.log('Level 4.8');
+
+//Сделайте функцию, которая параметром будет принимать массив и возвращать случайный элемент этого массива.
 
 
 
