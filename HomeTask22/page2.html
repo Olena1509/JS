@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Завдання</h1>
+
+    <!-- 2. Останній вхід -->
+    <section id="last-login-section">
+        <h2>Дата останнього входу</h2>
+        <p id="last-login"></p>
+    </section>
+
+    <!-- 4. To-Do List -->
+    <section id="todo-section">
+        <h2>Список завдань</h2>
+        <div>
+            <input type="text" id="todo-title" placeholder="Назва завдання">
+            <input type="date" id="todo-date">
+            <textarea id="todo-description" placeholder="Опис"></textarea>
+            <button onclick="addTask()">Додати завдання</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </section>
+
+    <!-- 5. Таймер сесії -->
+    <section id="session-timer">
+        <h2>Таймер сесії</h2>
+        <p id="timer"></p>
+    </section>
+<script src="./task2.js"></script>
+</body>
+</html>
