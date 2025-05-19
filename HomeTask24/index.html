@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      display: inline-block;
+      border: 1px solid black;
+    }
+    .nested {
+      background-color: lightblue;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Завдання 1: Два кубики -->
+<!-- Потрібно при кліку на перший кубик змінити колір другого на рандомний -->
+<h3>Завдання 1</h3>
+<div id="box1" class="box" style="background-color: red;"></div>
+<div id="box2" class="box" style="background-color: gray;"></div>
+
+<!-- Завдання 2: Блок тексту, який не можна скопіювати -->
+<h3>Завдання 2</h3>
+<p id="copyBlock">Цей текст неможливо скопіювати!!</p>
+
+<!-- Завдання 3: Кубик, що змінює колір залежно від координат миші -->
+<h3>Завдання 3</h3>
+<div id="colorBox" class="box"></div>
+
+<!-- Завдання 4: Три вкладених кубика, кожен з яких виводить інформацію про себе -->
+<h3>Завдання 4</h3>
+<div id="outer" class="box nested">
+  Зовнішній
+  <div id="middle" class="box nested">
+    Середній
+    <div id="inner" class="box nested">
+      Внутрішній
+    </div>
+  </div>
+</div>
+
+<!-- Завдання 5: Кубики з керуванням івентами (stopPropagation) -->
+<h3>Завдання 5</h3>
+<div id="boxA" class="box nested">
+  A
+  <div id="boxB" class="box nested">
+    B
+    <div id="boxC" class="box nested">
+      C
+    </div>
+  </div>
+</div>
+
+<!-- Завдання 6: Форма + збір даних -->
+<h3>Завдання 6</h3>
+<form id="myForm">
+  <input type="text" name="name" placeholder="Ваше ім'я" required><br>
+  <input type="email" name="email" placeholder="Email" required><br>
+  <button type="submit">Надіслати</button>
+</form>
+<script src="index.js"></script>
+
+</body>
+</html>
